@@ -307,14 +307,16 @@ impl Default for Fr {
 
 impl core::fmt::Debug for Fr {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        let bytes = {
-            let mut out = self.to_bytes_le();
-            out
-        };
-        let mut hex_chars = [0u8; 64];
-        hex::encode_to_slice(&bytes, &mut hex_chars)
-            .expect("not enough space to write hex characters");
-        println!("{:?}", Fr::from_raw_bytes(&bytes).into_bigint());
+        // let bytes = {
+        //     let mut out = self.to_bytes_le();
+        //     out
+        // };
+        // let mut hex_chars = [0u8; 64];
+        // hex::encode_to_slice(&bytes, &mut hex_chars)
+        //     .expect("not enough space to write hex characters");
+        // println!("{:?}", Fr::from_raw_bytes(&bytes).into_bigint());
+        
+        println!("{:?}", self.into_bigint());
         Ok(())
     }
 }
